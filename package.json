@@ -1,0 +1,34 @@
+{
+  "name": "hlogs",
+  "version": "1.0.0",
+  "description": "Logging tool",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelHadzic/hlogs.git"
+  },
+  "keywords": [
+    "logging",
+    "typescript",
+    "npm"
+  ],
+  "author": "Rafael Hadzic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RafaelHadzic/hlogs/issues"
+  },
+  "homepage": "https://github.com/RafaelHadzic/hlogs#readme",
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "bson-objectid": "^2.0.4",
+    "moment": "^2.30.1",
+    "ts-node": "^10.9.2"
+  }
+}
