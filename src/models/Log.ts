@@ -22,9 +22,9 @@ export class Log {
      */
     constructor() {
         this.root_path = process.cwd();
-        console.log(`Log file created in ${this.root_path}/`);
         if (!fs.existsSync(`${this.root_path}/${this.filename}`)) {
             fs.writeFileSync(`${this.root_path}/${this.filename}`, `[${moment().format('DD/MM/YYYY HH:mm:ss')}] - ${ObjectID()} - Log file created\n`);
+            console.log(`Log file created in ${this.root_path}/`);
         }
     }
 

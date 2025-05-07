@@ -57,9 +57,9 @@ class Log {
         this.root_path = "";
         this.filename = "hlogs.log";
         this.root_path = process.cwd();
-        console.log(`Log file created in ${this.root_path}/`);
         if (!fs.existsSync(`${this.root_path}/${this.filename}`)) {
             fs.writeFileSync(`${this.root_path}/${this.filename}`, `[${(0, moment_1.default)().format('DD/MM/YYYY HH:mm:ss')}] - ${(0, bson_objectid_1.default)()} - Log file created\n`);
+            console.log(`Log file created in ${this.root_path}/`);
         }
     }
     /**
