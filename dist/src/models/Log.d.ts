@@ -5,16 +5,22 @@
  * add this file to .gitignore to avoid uploading it to the repository or rewriting it.
  */
 export declare class Log {
-    log?: string;
+    private log?;
     private root_path;
     private filename;
+    /**
+     * @constructor
+     * @description This constructor is used to create a log file and add logs to it. All logs are
+     * stored in the root directory of the project in a file called hlogs.log. It's recommended to
+     * add this file to .gitignore to avoid uploading it to the repository or rewriting it.
+     */
     constructor();
     /**
      * @method add
      * @description This method is used to add a log to the log file.
      * @param {string} log - The log to be added.
      * @param {string} print - If true, the log will be printed to the console. The default value is true.
-     * @returns {string} - A message indicating that the log was successfully registered.
+     * @returns A message indicating that the log was successfully registered.
      */
     add(log: any, print?: boolean): string;
     /**
@@ -26,3 +32,7 @@ export declare class Log {
      */
     find(id: string): string;
 }
+declare const _default: {
+    Log: typeof Log;
+};
+export default _default;

@@ -38,7 +38,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Log = void 0;
 const fs = __importStar(require("fs"));
-const path = __importStar(require("path"));
 const moment_1 = __importDefault(require("moment"));
 const bson_objectid_1 = __importDefault(require("bson-objectid"));
 /**
@@ -48,22 +47,17 @@ const bson_objectid_1 = __importDefault(require("bson-objectid"));
  * add this file to .gitignore to avoid uploading it to the repository or rewriting it.
  */
 class Log {
+    /**
+     * @constructor
+     * @description This constructor is used to create a log file and add logs to it. All logs are
+     * stored in the root directory of the project in a file called hlogs.log. It's recommended to
+     * add this file to .gitignore to avoid uploading it to the repository or rewriting it.
+     */
     constructor() {
         this.root_path = "";
         this.filename = "hlogs.log";
-        function setProjectRoot(diretorioAtual = __dirname) {
-            let dir = diretorioAtual;
-            while (!fs.existsSync(path.join(dir, 'package.json'))) {
-                const dirAnterior = dir;
-                dir = path.resolve(dir, '..');
-                // Para evitar loop infinito se chegar no root
-                if (dir === dirAnterior) {
-                    throw new Error('Não foi possível encontrar a raiz do projeto (package.json não encontrado).');
-                }
-            }
-            return dir;
-        }
-        this.root_path = setProjectRoot();
+        this.root_path = process.cwd();
+        console.log(`Log file created in ${this.root_path}/`);
         if (!fs.existsSync(`${this.root_path}/${this.filename}`)) {
             fs.writeFileSync(`${this.root_path}/${this.filename}`, `[${(0, moment_1.default)().format('DD/MM/YYYY HH:mm:ss')}] - ${(0, bson_objectid_1.default)()} - Log file created\n`);
         }
@@ -73,7 +67,7 @@ class Log {
      * @description This method is used to add a log to the log file.
      * @param {string} log - The log to be added.
      * @param {string} print - If true, the log will be printed to the console. The default value is true.
-     * @returns {string} - A message indicating that the log was successfully registered.
+     * @returns A message indicating that the log was successfully registered.
      */
     add(log, print = true) {
         if (typeof log !== 'string') {
@@ -107,3 +101,4 @@ class Log {
     }
 }
 exports.Log = Log;
+exports.default = { Log };

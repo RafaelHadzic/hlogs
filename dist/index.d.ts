@@ -1,1 +1,1 @@
-export {};
+export * from './src/models/Log';
